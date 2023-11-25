@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Weather App</string>
+
+    <string name="preview_text">Your Content Here</string>
+</resources>
