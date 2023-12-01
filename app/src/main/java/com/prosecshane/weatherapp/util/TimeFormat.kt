@@ -16,7 +16,7 @@ fun formatTime(
         return simpleFormatter.format(givenMillis)
     }
     val result = fullFormatter.format(givenMillis)
-    val month = givenMillis % 31536000000 / 2592000025 + 1
+    val month = givenMillis % 31557600000 / 2629800000 + 1
     return result + (monthsRU[month]?: throw Exception(
         "Error while formatting time: month can't be converted to Russian")
             )

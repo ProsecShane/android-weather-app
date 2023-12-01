@@ -35,7 +35,7 @@ fun WeatherNow(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier,
     ) {
-        val formattedStatus = formatStatus(entry.status)
+        val formattedStatus = formatStatus(entry.status, entry.time)
         Icon(
             painter = painterResource(id = formattedStatus.icon),
             contentDescription = "Today's Weather Description",

@@ -28,11 +28,12 @@
 * Network
     * ~~Retrofit (в разработке)~~
 * Хранение данных
-    * ~~Room (в разработке)~~
+    * Room (в разработке)
     * Shared Preferences
 * Возможные дополнения
     * Полный список городов
     * Виджет
+    * Регулярные уведомления
 
 **Если у вас остались какие-либо вопросы, можете писать мне сюда: prosecshane@yandex.ru**
 
@@ -65,14 +66,13 @@ List of technologies for Android app development, that were used in this project
 * Backend
     * OpenWeatherMap API
 * Network
-    * ~~Retrofit (WIP)~~
+    * Retrofit (WIP)
 * Data storage
     * ~~Room (WIP)~~
     * Shared Preferences
 * Possible future additions
     * Full list of all cities
     * Widget
+    * Notifications
 
 **If you have any questions, you can contact me at prosecshane@yandex.ru**
-
-> "This is a first rate town, a first rate town you know"

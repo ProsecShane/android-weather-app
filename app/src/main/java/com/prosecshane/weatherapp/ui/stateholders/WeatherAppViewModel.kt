@@ -12,14 +12,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class WeatherAppViewModel(
-    initChosenCity: Int,
+    private val initChosenCity: Int,
     rememberCityAndTime: (Int, Long) -> Unit,
     getCity: () -> Int,
     getTheme: () -> Int,
     getCelsius: () -> Int,
     getRefresh: () -> Long,
-    var onSuccessfulUpdateEntriesCallback: () -> Unit,
-    var onUnsuccessfulUpdateEntriesCallback: () -> Unit,
+    private var onSuccessfulUpdateEntriesCallback: () -> Unit,
+    private var onUnsuccessfulUpdateEntriesCallback: () -> Unit,
 ) : ViewModel() {
     private val repo: WeatherAppRepository = WeatherAppRepository(
         rememberCityAndTime, getCity, getTheme, getCelsius, getRefresh,
@@ -40,7 +40,12 @@ class WeatherAppViewModel(
     private val _refresh = MutableStateFlow(0L)
     val refresh: StateFlow<Long> = _refresh
 
-    init {
+    suspend fun setCallbacks(
+        onSuccessfulCallback: () -> Unit,
+        onUnsuccessfulCallback: () -> Unit,
+    ) {
+        onSuccessfulUpdateEntriesCallback = onSuccessfulCallback
+        onUnsuccessfulUpdateEntriesCallback = onUnsuccessfulCallback
         viewModelScope.launch(Dispatchers.IO) {
             updateEntries(
                 chosenCity = initChosenCity,

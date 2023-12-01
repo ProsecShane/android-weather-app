@@ -1,11 +1,12 @@
 package com.prosecshane.weatherapp.util
 
+import android.util.Log
 import com.prosecshane.weatherapp.data.model.WeatherStatus
 import com.prosecshane.weatherapp.util.model.FormattedStatus
 
 fun formatStatus(
     status: WeatherStatus,
-    time: Long = 0,
+    time: Long,
 ): FormattedStatus {
     val result = FormattedStatus(
         statusFormatIcon[status]?: throw Exception("Error formatting weather status to Icon"),

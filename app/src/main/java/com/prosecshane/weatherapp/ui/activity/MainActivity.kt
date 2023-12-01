@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
@@ -58,11 +59,13 @@ class MainActivity : ComponentActivity() {
             val showNoInternetNotification: MutableState<Boolean> =
                 remember { mutableStateOf(false) }
 
-            viewModel.onSuccessfulUpdateEntriesCallback = {
-                showNoInternetNotification.value = false
-            }
-            viewModel.onUnsuccessfulUpdateEntriesCallback = {
-                showNoInternetNotification.value = true
+            LaunchedEffect(true) {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    viewModel.setCallbacks(
+                        { showNoInternetNotification.value = false },
+                        { showNoInternetNotification.value = true },
+                    )
+                }
             }
 
             val chosenCity = viewModel.city.collectAsState()

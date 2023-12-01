@@ -1,5 +1,8 @@
 package com.prosecshane.weatherapp.ui.fragment.main.elements
 
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +14,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,12 +29,21 @@ import androidx.compose.ui.unit.sp
 import com.prosecshane.weatherapp.R
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 import com.prosecshane.weatherapp.util.formatUpdateTime
+import kotlinx.coroutines.delay
 
 @Composable
 fun RefreshBar(
     lastUpdated: Long,
     refreshCallback: () -> Unit = {},
 ) {
+    val lastUpdatedState: MutableState<String> =
+        remember { mutableStateOf(formatUpdateTime(lastUpdated)) }
+    LaunchedEffect(lastUpdated) {
+       while (true) {
+           delay(60000L)
+           lastUpdatedState.value = formatUpdateTime(lastUpdated)
+       }
+    }
     Row(
         modifier = Modifier
             .padding(25.dp, 0.dp)
@@ -40,7 +54,7 @@ fun RefreshBar(
             modifier = Modifier
                 .padding(15.dp)
                 .weight(1f),
-            text = "Обновлено в последний раз:\n${formatUpdateTime(lastUpdated)}",
+            text = "Обновлено в последний раз:\n${lastUpdatedState.value}",
             color = Color.Gray,
             fontSize = 12.sp,
             lineHeight = 14.sp,

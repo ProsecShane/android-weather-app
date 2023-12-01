@@ -1,9 +1,12 @@
 package com.prosecshane.weatherapp.ui.fragment.main.elements
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
@@ -36,7 +39,8 @@ fun ForecastRow(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(25.dp, 0.dp),
+            .padding(25.dp, 0.dp)
+            .height(intrinsicSize = IntrinsicSize.Max),
     ) {
         for (i in 0 until 3) {
             ForecastCard(

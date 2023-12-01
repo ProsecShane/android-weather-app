@@ -1,6 +1,7 @@
 package com.prosecshane.weatherapp.data.datasource.hardcoded
 
 import com.prosecshane.weatherapp.data.datasource.WeatherAppDataSource
+import com.prosecshane.weatherapp.data.datasource.retrofit.weather.model.LocationModel
 import com.prosecshane.weatherapp.data.model.Entry
 import kotlin.random.Random
 
@@ -16,5 +17,10 @@ class HardCodedDataSource : WeatherAppDataSource {
         return result
     }
 
-    override suspend fun loadEntries(): List<Entry> = generateData()
+    override suspend fun loadEntries(
+        locationModel: LocationModel,
+        callback: (List<Entry>) -> Unit,
+    ) {
+        callback(generateData())
+    }
 }
