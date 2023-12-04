@@ -36,9 +36,9 @@
     * Room
     * Shared Preferences
 * Возможные дополнения
-  [ ] Регулярные уведомления
-  [ ] Полный список городов
-  [ ] Виджет
+  - [ ] Регулярные уведомления
+  - [ ] Полный список городов
+  - [ ] Виджет
 
 **Если у вас остались какие-либо вопросы, можете писать мне сюда: prosecshane@yandex.ru**
 
@@ -81,8 +81,8 @@ List of technologies for Android app development, that were used in this project
     * Room
     * Shared Preferences
 * Possible future additions
-  [ ] Notifications
-  [ ] Full list of all cities
-  [ ] Widget
+  - [ ] Notifications
+  - [ ] Full list of all cities
+  - [ ] Widget
 
 **If you have any questions, you can contact me at prosecshane@yandex.ru**
