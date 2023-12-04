@@ -41,6 +41,8 @@ class WeatherAppRepository(
                 localDataSource.loadEntries(
                     LocationModel(usingCity = true)
                 ) { entries ->
+                    if (entries.size < 7)
+                        throw ArrayIndexOutOfBoundsException("Empty Local Storage")
                     localEntries = entries
                 }
             } catch (e: Exception) {
