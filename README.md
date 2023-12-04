@@ -1,13 +1,18 @@
 # Приложение Погоды
+
+![](https://i.imgur.com/gIyQic1.png)
+
 ### Автор: Алексеев Вячеслав (ProsecShane)
 > For English translation, scroll to the lower part
-
-![](https://i.imgur.com/mSL7IKa.png)
 
 Приложение, которое позволяет узнать погоду.
 Написано для **Android** с помощью **Kotlin**.
 
-[~~**Скачать APK файл (в разработке)**~~](http://endless.horse/)
+[**Релизная версия**](app/release/app-release.apk)
+
+![](https://i.imgur.com/s9cu6xK.png)
+
+![](https://i.imgur.com/tnPiQIy.png)
 
 ----
 
@@ -22,31 +27,37 @@
     * Coroutine и Flow
 * UI
     * Jetpack Compose
-    * ~~Анимации (в разработке)~~
+    * Анимации
 * Бэкенд
     * OpenWeatherMap API
 * Network
-    * ~~Retrofit (в разработке)~~
+    * Retrofit
 * Хранение данных
-    * ~~Room (в разработке)~~
+    * Room
     * Shared Preferences
 * Возможные дополнения
-    * Полный список городов
-    * Виджет
+  - [ ] Регулярные уведомления
+  - [ ] Полный список городов
+  - [ ] Виджет
 
 **Если у вас остались какие-либо вопросы, можете писать мне сюда: prosecshane@yandex.ru**
 
 ----
 
 # Weather App
-### By: Alekseev Vyacheslav (ProsecShane)
 
-![](https://i.imgur.com/mSL7IKa.png)
+![](https://i.imgur.com/gIyQic1.png)
+
+### By: Alekseev Vyacheslav (ProsecShane)
 
 A mobile app that tells the weather.
 Made with **Kotlin** for **Android**.
 
-[~~**Download APK file (WIP)**~~](http://endless.horse/)
+[**Release version**](app/release/app-release.apk)
+
+![](https://i.imgur.com/s9cu6xK.png)
+
+![](https://i.imgur.com/tnPiQIy.png)
 
 ----
 
@@ -61,18 +72,17 @@ List of technologies for Android app development, that were used in this project
     * Coroutine and Flow
 * UI
     * Jetpack Compose
-    * ~~Animations (WIP)~~
+    * Animations
 * Backend
     * OpenWeatherMap API
 * Network
-    * ~~Retrofit (WIP)~~
+    * Retrofit
 * Data storage
-    * ~~Room (WIP)~~
+    * Room
     * Shared Preferences
 * Possible future additions
-    * Full list of all cities
-    * Widget
+  - [ ] Notifications
+  - [ ] Full list of all cities
+  - [ ] Widget
 
 **If you have any questions, you can contact me at prosecshane@yandex.ru**
-
-> "This is a first rate town, a first rate town you know"

@@ -3,26 +3,28 @@ package com.prosecshane.weatherapp.ui.stateholders
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prosecshane.weatherapp.data.datasource.hardcoded.initialValues
+import com.prosecshane.weatherapp.data.datasource.local.room.WeatherAppDatabase
 import com.prosecshane.weatherapp.data.model.Entry
 import com.prosecshane.weatherapp.data.repository.WeatherAppRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
+// Main app state holder, view model
 class WeatherAppViewModel(
-    initChosenCity: Int,
+    private val initChosenCity: Int,
     rememberCityAndTime: (Int, Long) -> Unit,
     getCity: () -> Int,
     getTheme: () -> Int,
     getCelsius: () -> Int,
     getRefresh: () -> Long,
-    var onSuccessfulUpdateEntriesCallback: () -> Unit,
-    var onUnsuccessfulUpdateEntriesCallback: () -> Unit,
+    private var onSuccessfulUpdateEntriesCallback: () -> Unit,
+    private var onUnsuccessfulUpdateEntriesCallback: () -> Unit,
+    databaseMaker: () -> WeatherAppDatabase,
 ) : ViewModel() {
     private val repo: WeatherAppRepository = WeatherAppRepository(
-        rememberCityAndTime, getCity, getTheme, getCelsius, getRefresh,
+        rememberCityAndTime, getCity, getTheme, getCelsius, getRefresh, databaseMaker
     )
 
     private val _entries = MutableStateFlow(initialValues)
@@ -40,7 +42,13 @@ class WeatherAppViewModel(
     private val _refresh = MutableStateFlow(0L)
     val refresh: StateFlow<Long> = _refresh
 
-    init {
+    // Sets the callbacks for loading data from data source
+    suspend fun setCallbacks(
+        onSuccessfulCallback: () -> Unit,
+        onUnsuccessfulCallback: () -> Unit,
+    ) {
+        onSuccessfulUpdateEntriesCallback = onSuccessfulCallback
+        onUnsuccessfulUpdateEntriesCallback = onUnsuccessfulCallback
         viewModelScope.launch(Dispatchers.IO) {
             updateEntries(
                 chosenCity = initChosenCity,
@@ -54,6 +62,7 @@ class WeatherAppViewModel(
         }
     }
 
+    // Update entries from repository
     suspend fun updateEntries(
         chosenCity: Int,
         callback: suspend () -> Unit = {},
@@ -70,6 +79,7 @@ class WeatherAppViewModel(
         }
     }
 
+    // Update city from SP
     suspend fun updateCity() {
         viewModelScope.launch(Dispatchers.IO) {
             repo.loadCity().collect {
@@ -78,6 +88,7 @@ class WeatherAppViewModel(
         }
     }
 
+    // Update theme choice from SP
     suspend fun updateTheme() {
         viewModelScope.launch(Dispatchers.IO) {
             repo.loadTheme().collect {
@@ -86,6 +97,7 @@ class WeatherAppViewModel(
         }
     }
 
+    // Update celsius/fahrenheit choice from SP
     suspend fun updateCelsius() {
         viewModelScope.launch(Dispatchers.IO) {
             repo.loadCelsius().collect {
@@ -94,6 +106,7 @@ class WeatherAppViewModel(
         }
     }
 
+    // Update last refresh time from SP
     suspend fun updateRefresh() {
         viewModelScope.launch(Dispatchers.IO) {
             repo.loadRefresh().collect {

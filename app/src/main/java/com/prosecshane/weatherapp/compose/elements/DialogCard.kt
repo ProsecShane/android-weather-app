@@ -2,7 +2,6 @@ package com.prosecshane.weatherapp.compose.elements
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -19,6 +18,7 @@ import com.prosecshane.weatherapp.R
 import com.prosecshane.weatherapp.compose.theme.Gray
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 
+// Custom Compose Dialog, styled for this app
 @Composable
 fun DialogCard(
     modifier: Modifier = Modifier,

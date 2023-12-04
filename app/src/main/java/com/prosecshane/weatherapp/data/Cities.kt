@@ -1,5 +1,6 @@
 package com.prosecshane.weatherapp.data
 
+// City names for app, in both languages
 val cityNamesEnglish = listOf(
     "auto", "Moscow", "Saint Petersburg", "Perm",
     "Chelyabinsk", "Kazan", "Krasnodar",

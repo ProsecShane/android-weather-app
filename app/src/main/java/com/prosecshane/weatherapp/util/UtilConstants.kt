@@ -5,11 +5,13 @@ import com.prosecshane.weatherapp.data.model.WeatherStatus
 import java.text.SimpleDateFormat
 import java.util.Locale
 
+// Constants for Util functions
 val fullFormatter = SimpleDateFormat("HH:mm, dd ", Locale.UK)
 val simpleFormatter = SimpleDateFormat("HH:mm", Locale.US)
 
 const val dayInMillis = 86400000L
 const val tenHoursInMillis = 36000000L
+const val hourInMillis = 3600000L
 const val minuteInMillis = 60000L
 
 val monthsRU = mapOf(

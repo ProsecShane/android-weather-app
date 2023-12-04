@@ -3,9 +3,10 @@ package com.prosecshane.weatherapp.util
 import com.prosecshane.weatherapp.data.model.WeatherStatus
 import com.prosecshane.weatherapp.util.model.FormattedStatus
 
+// Convert WeatherStatus to FormattedStatus, uses time millis
 fun formatStatus(
     status: WeatherStatus,
-    time: Long = 0,
+    time: Long,
 ): FormattedStatus {
     val result = FormattedStatus(
         statusFormatIcon[status]?: throw Exception("Error formatting weather status to Icon"),

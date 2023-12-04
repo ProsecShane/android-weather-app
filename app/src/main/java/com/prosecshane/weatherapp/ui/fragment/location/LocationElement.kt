@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.prosecshane.weatherapp.R
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 
+// A single item from the list of locations
 @Composable
 fun LocationElement(
     cityName: String,

@@ -1,7 +1,5 @@
 package com.prosecshane.weatherapp.ui.fragment.main.elements
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -17,7 +15,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.prosecshane.weatherapp.R
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 import com.prosecshane.weatherapp.data.model.Entry
 import com.prosecshane.weatherapp.data.model.Implementation
@@ -25,6 +22,7 @@ import com.prosecshane.weatherapp.data.model.WeatherStatus
 import com.prosecshane.weatherapp.util.formatStatus
 import com.prosecshane.weatherapp.util.formatTemperature
 
+// An object containing everything about current weather
 @Composable
 fun WeatherNow(
     entry: Entry,
@@ -35,7 +33,7 @@ fun WeatherNow(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier,
     ) {
-        val formattedStatus = formatStatus(entry.status)
+        val formattedStatus = formatStatus(entry.status, entry.time)
         Icon(
             painter = painterResource(id = formattedStatus.icon),
             contentDescription = "Today's Weather Description",
