@@ -1,6 +1,6 @@
 # Приложение Погоды
 
-![](desc_res/logo_small.png)
+![](https://i.imgur.com/gIyQic1.png)
 
 ### Автор: Алексеев Вячеслав (ProsecShane)
 > For English translation, scroll to the lower part
@@ -8,11 +8,11 @@
 Приложение, которое позволяет узнать погоду.
 Написано для **Android** с помощью **Kotlin**.
 
-[**Скачать APK файл**](app/release/app-release.apk)
+[**Релизная версия**](app/release/app-release.apk)
 
-![](desc_res/scr123.png)
+![](https://i.imgur.com/s9cu6xK.png)
 
-![](desc_res/scr456.png)
+![](https://i.imgur.com/tnPiQIy.png)
 
 ----
 
@@ -46,18 +46,18 @@
 
 # Weather App
 
-![](desc_res/logo_small.png)
+![](https://i.imgur.com/gIyQic1.png)
 
 ### By: Alekseev Vyacheslav (ProsecShane)
 
 A mobile app that tells the weather.
 Made with **Kotlin** for **Android**.
 
-[**Download APK file**](app/release/app-release.apk)
+[**Release version**](app/release/app-release.apk)
 
-![](desc_res/scr123.png)
+![](https://i.imgur.com/s9cu6xK.png)
 
-![](desc_res/scr456.png)
+![](https://i.imgur.com/tnPiQIy.png)
 
 ----
 
