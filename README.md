@@ -1,13 +1,18 @@
 # Приложение Погоды
+
+![](desc_res/logo_small.png)
+
 ### Автор: Алексеев Вячеслав (ProsecShane)
 > For English translation, scroll to the lower part
-
-![](https://i.imgur.com/mSL7IKa.png)
 
 Приложение, которое позволяет узнать погоду.
 Написано для **Android** с помощью **Kotlin**.
 
-[~~**Скачать APK файл (в разработке)**~~](http://endless.horse/)
+[**Скачать APK файл**](app/release/app-release.apk)
+
+![](desc_res/scr123.png)
+
+![](desc_res/scr456.png)
 
 ----
 
@@ -22,32 +27,37 @@
     * Coroutine и Flow
 * UI
     * Jetpack Compose
-    * ~~Анимации (в разработке)~~
+    * Анимации
 * Бэкенд
     * OpenWeatherMap API
 * Network
-    * ~~Retrofit (в разработке)~~
+    * Retrofit
 * Хранение данных
-    * Room (в разработке)
+    * Room
     * Shared Preferences
 * Возможные дополнения
-    * Полный список городов
-    * Виджет
-    * Регулярные уведомления
+  [] Регулярные уведомления
+  [] Полный список городов
+  [] Виджет
 
 **Если у вас остались какие-либо вопросы, можете писать мне сюда: prosecshane@yandex.ru**
 
 ----
 
 # Weather App
-### By: Alekseev Vyacheslav (ProsecShane)
 
-![](https://i.imgur.com/mSL7IKa.png)
+![](desc_res/logo_small.png)
+
+### By: Alekseev Vyacheslav (ProsecShane)
 
 A mobile app that tells the weather.
 Made with **Kotlin** for **Android**.
 
-[~~**Download APK file (WIP)**~~](http://endless.horse/)
+[**Download APK file**](app/release/app-release.apk)
+
+![](desc_res/scr123.png)
+
+![](desc_res/scr456.png)
 
 ----
 
@@ -62,17 +72,17 @@ List of technologies for Android app development, that were used in this project
     * Coroutine and Flow
 * UI
     * Jetpack Compose
-    * ~~Animations (WIP)~~
+    * Animations
 * Backend
     * OpenWeatherMap API
 * Network
-    * Retrofit (WIP)
+    * Retrofit
 * Data storage
-    * ~~Room (WIP)~~
+    * Room
     * Shared Preferences
 * Possible future additions
-    * Full list of all cities
-    * Widget
-    * Notifications
+  [] Notifications
+  [] Full list of all cities
+  [] Widget
 
 **If you have any questions, you can contact me at prosecshane@yandex.ru**

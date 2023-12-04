@@ -11,6 +11,7 @@ import com.prosecshane.weatherapp.data.model.Entry
 import com.prosecshane.weatherapp.data.model.Implementation
 import com.prosecshane.weatherapp.data.model.WeatherStatus
 
+// An object containing current and coming weather
 @Composable
 fun WeatherTodayCard(
     entries: List<Entry>,

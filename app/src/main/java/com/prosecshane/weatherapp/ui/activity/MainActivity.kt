@@ -1,7 +1,6 @@
 package com.prosecshane.weatherapp.ui.activity
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -12,10 +11,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.prosecshane.weatherapp.compose.elements.InAppNotification
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 import com.prosecshane.weatherapp.data.cityNamesRussian
 import com.prosecshane.weatherapp.data.datasource.hardcoded.initialValues
+import com.prosecshane.weatherapp.data.datasource.local.LocalDataSourceConstants.LOCAL_DATA_FILENAME
+import com.prosecshane.weatherapp.data.datasource.local.room.WeatherAppDatabase
 import com.prosecshane.weatherapp.data.model.Entry
 import com.prosecshane.weatherapp.data.sharedprefs.SpApi
 import com.prosecshane.weatherapp.data.sharedprefs.SpConstants.CELSIUS
@@ -27,11 +29,9 @@ import com.prosecshane.weatherapp.ui.fragment.main.MainFragment
 import com.prosecshane.weatherapp.ui.fragment.settings.SettingsDialog
 import com.prosecshane.weatherapp.ui.stateholders.WeatherAppViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
+// App Main Activity
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +49,13 @@ class MainActivity : ComponentActivity() {
             getRefresh = { spApi.get(REFRESH, 0L) },
             onSuccessfulUpdateEntriesCallback = {},
             onUnsuccessfulUpdateEntriesCallback = {},
+            databaseMaker = {
+                Room.databaseBuilder(
+                    this.applicationContext,
+                    WeatherAppDatabase::class.java,
+                    LOCAL_DATA_FILENAME,
+                ).build()
+            }
         )
 
         setContent {

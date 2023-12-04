@@ -13,6 +13,7 @@ import com.prosecshane.weatherapp.R
 import com.prosecshane.weatherapp.compose.elements.PrimaryCard
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 
+// Button that creates a Settings Dialog
 @Composable
 fun SettingsButton(
     clickCallback: () -> Unit = {},

@@ -2,6 +2,7 @@ package com.prosecshane.weatherapp.data.datasource.retrofit.weather
 
 import com.prosecshane.weatherapp.data.model.WeatherStatus
 
+// Converts weather status ID from response to WeatherStatus class
 fun idToWeatherStatus(id: Int): WeatherStatus {
     return when {
         (id == 800) -> WeatherStatus.Clear

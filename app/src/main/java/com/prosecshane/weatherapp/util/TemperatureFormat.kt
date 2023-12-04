@@ -2,6 +2,7 @@ package com.prosecshane.weatherapp.util
 
 import kotlin.math.floor
 
+// Format temperature from celsius value to chosen value with string
 fun formatTemperature(
     value: Float,
     celsius: Boolean = true,

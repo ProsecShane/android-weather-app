@@ -23,6 +23,7 @@ import com.prosecshane.weatherapp.R
 import com.prosecshane.weatherapp.compose.theme.Gray
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 
+// Notification object, acts like Snack Bar
 @Composable
 fun InAppNotification(
     text: String,

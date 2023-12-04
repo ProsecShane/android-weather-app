@@ -1,8 +1,8 @@
 package com.prosecshane.weatherapp.util
 
-import java.util.Calendar
 import kotlin.math.abs
 
+// Format time from millis to day and month and hour and minutes
 fun formatTime(
     givenMillis: Long,
 ): String {

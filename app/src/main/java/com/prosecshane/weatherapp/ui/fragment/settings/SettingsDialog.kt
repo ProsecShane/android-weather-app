@@ -14,12 +14,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,9 +28,9 @@ import com.prosecshane.weatherapp.compose.elements.CustomSingleChoice
 import com.prosecshane.weatherapp.compose.elements.DialogCard
 import com.prosecshane.weatherapp.compose.theme.Gray
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
-import com.prosecshane.weatherapp.util.formatUpdateTime
 import com.prosecshane.weatherapp.util.model.StringIcon
 
+// Dialog with app settings
 @Composable
 fun SettingsDialog(
     themeChoice: State<Int>,

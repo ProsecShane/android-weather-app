@@ -1,5 +1,6 @@
 package com.prosecshane.weatherapp.util
 
+// Format millis to only date (day and month), used for forecasts
 fun formatForecastTime(
     givenMillis: Long,
 ): String {

@@ -1,13 +1,12 @@
 package com.prosecshane.weatherapp.data.datasource.retrofit.weather
 
-import android.util.Log
 import com.prosecshane.weatherapp.data.datasource.WeatherAppDataSource
 import com.prosecshane.weatherapp.data.datasource.retrofit.weather.WeatherApiConstants.ApiKey
 import com.prosecshane.weatherapp.data.datasource.retrofit.weather.WeatherApiConstants.ComingCount
 import com.prosecshane.weatherapp.data.datasource.retrofit.weather.WeatherApiConstants.ForecastCount
 import com.prosecshane.weatherapp.data.datasource.retrofit.weather.WeatherApiConstants.Units
-import com.prosecshane.weatherapp.data.datasource.retrofit.weather.model.EntryResponse
 import com.prosecshane.weatherapp.data.datasource.retrofit.weather.model.ComingResponse
+import com.prosecshane.weatherapp.data.datasource.retrofit.weather.model.EntryResponse
 import com.prosecshane.weatherapp.data.datasource.retrofit.weather.model.ForecastEntryResponse
 import com.prosecshane.weatherapp.data.datasource.retrofit.weather.model.ForecastResponse
 import com.prosecshane.weatherapp.data.datasource.retrofit.weather.model.LocationModel
@@ -16,6 +15,7 @@ import com.prosecshane.weatherapp.data.model.Implementation
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+// Network data source, gets weather entries from OpenWeatherMap API
 class NetworkDataSource : WeatherAppDataSource {
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl("https://api.openweathermap.org/data/2.5/")
@@ -24,6 +24,7 @@ class NetworkDataSource : WeatherAppDataSource {
     private val weatherApi: WeatherApi =
         retrofit.create(WeatherApi::class.java)
 
+    // Loading and processing entries
     override suspend fun loadEntries(
         locationModel: LocationModel,
         callback: (List<Entry>) -> Unit,
@@ -41,10 +42,10 @@ class NetworkDataSource : WeatherAppDataSource {
         for (elem in forecastResponse.list.takeLast(3))
             result.add(forecastEntryResponseToEntry(elem))
 
-        Log.d("WeatherAppDebug", "$result")
         callback(result)
     }
 
+    // Gets current weather by location
     private suspend fun getCurrentWeatherBody(locationModel: LocationModel): EntryResponse {
         return (if (locationModel.usingCity) {
             weatherApi.getCurrentWeatherByCity(Units, ApiKey, locationModel.city).body()
@@ -55,6 +56,7 @@ class NetworkDataSource : WeatherAppDataSource {
         })?: throw NullPointerException("Cannot get current weather")
     }
 
+    // Gets close weather entries by location
     private suspend fun getComingWeatherBody(locationModel: LocationModel): ComingResponse {
         return (if (locationModel.usingCity) {
             weatherApi.getComingWeatherByCity(
@@ -67,6 +69,7 @@ class NetworkDataSource : WeatherAppDataSource {
         })?: throw NullPointerException("Cannot get coming weather")
     }
 
+    // Gets weather forecasts entries by location
     private suspend fun getWeatherForecastBody(locationModel: LocationModel): ForecastResponse {
         return (if (locationModel.usingCity) {
             weatherApi.getWeatherForecastByCity(
@@ -79,6 +82,7 @@ class NetworkDataSource : WeatherAppDataSource {
         })?: throw NullPointerException("Cannot get weather forecast")
     }
 
+    // Turns response to Entry
     private fun entryResponseToEntry(
         entryResponse: EntryResponse,
         implementation: Implementation,
@@ -89,6 +93,7 @@ class NetworkDataSource : WeatherAppDataSource {
         implementation = implementation,
     )
 
+    // Turns forecast response to Entry
     private fun forecastEntryResponseToEntry(
         entryResponse: ForecastEntryResponse
     ): Entry = Entry(

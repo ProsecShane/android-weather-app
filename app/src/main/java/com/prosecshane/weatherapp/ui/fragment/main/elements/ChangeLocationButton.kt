@@ -6,9 +6,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -19,6 +16,7 @@ import com.prosecshane.weatherapp.compose.elements.PrimaryCard
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 import com.prosecshane.weatherapp.data.cityNamesRussian
 
+// Button that creates a Choose Location dialog, that allows changing the location
 @Composable
 fun ChangeLocationButton(
     chosenCity: Int,

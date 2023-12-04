@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.prosecshane.weatherapp.R
 import com.prosecshane.weatherapp.compose.theme.WeatherAppTheme
 
+// Custom Card object, styled for this App
 @Composable
 fun PrimaryCard(
     modifier: Modifier = Modifier,

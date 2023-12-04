@@ -1,9 +1,9 @@
 package com.prosecshane.weatherapp.util
 
-import android.util.Log
 import com.prosecshane.weatherapp.data.model.WeatherStatus
 import com.prosecshane.weatherapp.util.model.FormattedStatus
 
+// Convert WeatherStatus to FormattedStatus, uses time millis
 fun formatStatus(
     status: WeatherStatus,
     time: Long,

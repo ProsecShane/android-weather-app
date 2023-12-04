@@ -2,6 +2,7 @@ package com.prosecshane.weatherapp.util
 
 import java.util.Calendar
 
+// Format update time, uses "ago" format
 fun formatUpdateTime(
     givenMillis: Long,
 ): String {

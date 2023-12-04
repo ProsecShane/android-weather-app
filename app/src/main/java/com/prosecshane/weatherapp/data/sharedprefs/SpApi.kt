@@ -2,12 +2,12 @@ package com.prosecshane.weatherapp.data.sharedprefs
 
 import android.content.Context
 import androidx.core.content.edit
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
+// Api, allows easier use of SP
 class SpApi(context: Context) {
     private val prefs = context.getSharedPreferences("WeatherAppSP", Context.MODE_PRIVATE)
 
+    // Set Any, the Api determines the type by itself
     fun set(key: String, value: Any) {
         prefs.edit(commit = true) {
             when (value) {
@@ -23,6 +23,7 @@ class SpApi(context: Context) {
         }
     }
 
+    // Get Any, the type is determined by the fallback value
     fun <T> get(key: String, fallback: T): T {
         val result = when (fallback) {
             is Int -> prefs.getInt(key, fallback)
